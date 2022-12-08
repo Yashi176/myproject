@@ -7,24 +7,10 @@ from django.shortcuts import render, HttpResponse
 from . models import ProductTable, User, cart
 from datetime import datetime
 # Create your views here.
-def setsession(request,email, password):
-    print("Inside set session")
-    request.session['email']=email
-    request.session['password']=password
-    return HttpResponse("session is set")
-def getsession(request):
-    email=request.session['email']
-    password=request.session['password']
-    return {"email":email,"password":password}
 def Home(request):
     if request.method=="GET":
         product=ProductTable.objects.all()
-        out = getsession(request)
-        print(out["email"])
-        if out["email"]:
-            return render(request,"index.html",{'email':out["email"], "product":product})
-        else:
-            return render(request,"index.html",{"product":product})
+        return render(request,"index.html",{"product":product})
     elif request.method=="POST":
         id=request.POST['id']
         print(id)
@@ -46,12 +32,8 @@ def login(request):
         e1=request.POST['Email']
         p1=request.POST['Password']
         try:
-            print("inside try")
-            ouT=User.objects.get(Email=e1,Password=p1)
+            ouT=User.objects.get(Name=n1,Email=e1,Password=p1)
             print(ouT.Email)
-
-            ott = setsession(request, e1, p1)
-            print("I am inside ott",ott)
             product=ProductTable.objects.all()
             return render(request,'index.html',{'email':ouT.Email, "product":product})
         except:
@@ -83,3 +65,7 @@ def SignUp(request):
             return render(request,"login.html")
         else:
             return render(request,"SignUp.html")
+def logout(request):
+    return render(request,"login.html")
+def about(request):
+    return render(request,"about.html")

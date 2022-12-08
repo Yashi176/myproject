@@ -102,6 +102,7 @@ a {
 
 .layout-inline > * {
   display: inline-block;
+  color: black;
 }
 
 .align-center {
@@ -278,24 +279,24 @@ a.qty:hover {
             {% for product in cart %}  
             <div class="layout-inline row">
               <div class="col col-pro layout-inline">
-                <img src="http://static.ddmcdn.com/gif/10-kitten-cuteness-1.jpg" alt="kitten" />
+                <!-- <img src="http://static.ddmcdn.com/gif/10-kitten-cuteness-1.jpg" alt="kitten" /> -->
                 <p>{{ product.p_name }}</p>
               </div>
               
               <div class="col col-price col-numeric align-center ">
-                <p>£59.99</p>
+                <p>{{ product.p_price }}</p>
               </div>
       
               <div class="col col-qty layout-inline">
                 <a href="#" class="qty qty-minus">-</a>
-                  <input type="numeric" value="3" />
+                  <input type="numeric" value="1" />
                 <a href="#" class="qty qty-plus">+</a>
               </div>
               
               <div class="col col-vat col-numeric">
-                <p>£2.95</p>
+                <p>Rs0.00</p>
               </div>
-              <div class="col col-total col-numeric">               <p> £182.95</p>
+              <div class="col col-total col-numeric">               <p>{{ product.t_price }}</p>
               </div>
             </div>
             {% endfor %}

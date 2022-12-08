@@ -110,22 +110,22 @@
                            <div class="collapse navbar-collapse" id="navbarsExample04">
                               <ul class="navbar-nav mr-auto">
                                  <li class="nav-item active">
-                                    <a class="nav-link" href="static/index.html">Home</a>
+                                    <a class="nav-link" href="{% url 'Home' %}">Home</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href="static/about.html">About</a>
+                                    <a class="nav-link" href="{% url 'about' %}">About</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href="static/products.html">Products</a>
+                                    <a class="nav-link" href="{% url 'cart' %}">Cart</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href="static/fashion.html">Fashion</a>
+                                    <a class="nav-link" href="{% url 'SignUp' %}">Signup</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href="news.html">News</a>
+                                    <a class="nav-link" href="{% url 'login' %}">login</a>
                                  </li>
                                  <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">Contact Us</a>
+                                    <a class="nav-link" href="{% url 'login' %}">log out</a>
                                  </li>
                               </ul>
                            </div>
